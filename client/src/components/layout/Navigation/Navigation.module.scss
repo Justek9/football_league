@@ -1,0 +1,26 @@
+@import '../../../styles/settings.scss';
+
+.navigationContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 5rem;
+	background-color: $color-background;
+
+	li {
+		list-style: none;
+		margin-right: 1rem;
+		height: auto;
+		a {
+			text-align: center;
+			color: $font-color-silver;
+			text-decoration: none;
+			padding: 0.7rem;
+			border-radius: $radius;
+			&:hover {
+				background-color: $color-background-dark;
+			}
+		}
+	}
+}

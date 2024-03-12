@@ -1,0 +1,19 @@
+@import '../../../styles/settings.scss';
+
+.root {
+	background-color: $color-background;
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		padding: 2rem 5rem;
+		max-width: 1440px;
+		img {
+			margin: 2rem;
+			border-radius: 50%;
+			height: 100px;
+			width: 100px;
+		}
+	}
+}
