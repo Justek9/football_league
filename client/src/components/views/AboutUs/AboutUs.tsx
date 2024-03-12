@@ -3,7 +3,7 @@ import styles from './AboutUs.module.scss'
 
 const AboutUs = () => {
 	return (
-		<>
+		<div id='o-nas'>
 			<SectionHeader header={'O nas'} />
 			<p className={styles.container}>
 				Witajcie w świecie naszej amatorskiej ligi piłki nożnej! Jesteśmy pasjonatami futbolu, którzy postanowili
@@ -14,7 +14,7 @@ const AboutUs = () => {
 				temat naszych meczów, zawodników, statystyk oraz wiele innych ciekawych treści związanych z piłką nożną. Dołącz
 				do naszej pasjonującej przygody piłkarskiej i bądź częścią naszej ligowej społeczności!
 			</p>
-		</>
+		</div>
 	)
 }
 
