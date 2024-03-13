@@ -4,9 +4,10 @@ import styles from './TopBar.module.scss'
 
 type TopBarProps = {
 	src: string
+	nav: boolean
 }
 
-const TopBar = ({ src }: TopBarProps) => {
+const TopBar = ({ src, nav }: TopBarProps) => {
 	const navigate = useNavigate()
 	const goToMainPageHandler = () => {
 		navigate('/')
@@ -14,7 +15,7 @@ const TopBar = ({ src }: TopBarProps) => {
 	return (
 		<nav className={styles.root}>
 			<img src={src} onClick={goToMainPageHandler}></img>
-			<Navigation />
+			{nav && <Navigation />}
 		</nav>
 	)
 }

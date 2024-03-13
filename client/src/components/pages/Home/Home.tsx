@@ -5,7 +5,7 @@ import AboutUs from '../../views/AboutUs/AboutUs'
 const Home = () => {
 	return (
 		<>
-			<TopBar src='./logo.jpg' />
+			<TopBar src='./logo.jpg' nav={true} />
 			<PlayerInfo />
 			<AboutUs />
 		</>

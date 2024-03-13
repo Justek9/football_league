@@ -4,7 +4,7 @@ import styles from './PlayerDetails.module.scss'
 const PlayerDetails = () => {
 	return (
 		<>
-			<TopBar src='../logo.jpg' />
+			<TopBar src='../logo.jpg' nav={false} />
 			<section className={styles.container}>
 				<div>
 					<img src='https://www.latoliga.pl/zawodnicy/rutkowski_pawel/01.jpg' alt='Paweł' />
@@ -26,7 +26,6 @@ const PlayerDetails = () => {
 					<p>
 						Numer koszulki: <span className={styles.bold}>48</span>
 					</p>
-					
 				</div>
 			</section>
 		</>
