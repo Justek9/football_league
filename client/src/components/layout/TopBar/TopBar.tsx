@@ -1,11 +1,19 @@
-import React, { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navigation from '../Navigation/Navigation'
 import styles from './TopBar.module.scss'
 
-const TopBar = () => {
+type TopBarProps = {
+	src: string
+}
+
+const TopBar = ({ src }: TopBarProps) => {
+	const navigate = useNavigate()
+	const goToMainPageHandler = () => {
+		navigate('/')
+	}
 	return (
 		<nav className={styles.root}>
-			<img src='./logo.jpg'></img>
+			<img src={src} onClick={goToMainPageHandler}></img>
 			<Navigation />
 		</nav>
 	)

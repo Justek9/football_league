@@ -1,0 +1,20 @@
+@import '../../../styles/settings.scss';
+
+.container {
+	.img {
+		margin: 1rem;
+		border-radius: 50%;
+		height: 100px;
+		width: 100px;
+		cursor: pointer;
+	}
+	p {
+		text-align: center;
+		font-size: 0.7rem;
+	}
+
+	.nickname {
+		color: $color-green;
+		font-size: 0.9rem;
+	}
+}

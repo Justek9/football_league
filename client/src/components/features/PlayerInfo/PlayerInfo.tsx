@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
+import PlayerOverview from '../../views/PlayerOverview/PlayerOverview'
 import SectionHeader from '../../views/SectionHeader/SectionHeader'
 import styles from './PlayerInfo.module.scss'
 
-type Player = {
+export type Player = {
 	name: string
 	nickname: string
 	birthYear: number
@@ -25,15 +26,7 @@ const PlayerInfo = () => {
 				<SectionHeader header={'Zawodnicy'} />
 				<section className={styles.container}>
 					{players.map(player => {
-						return (
-							<div key={player.name}>
-								<img src={player.imgSrc} alt={player.name} className={styles.img} />
-								<p>{player.name}</p>
-								<p>{player.nickname}</p>
-								<p>{player.birthYear}</p>
-								<p>{player.city}</p>
-							</div>
-						)
+						return <PlayerOverview key={player.name} player={player} />
 					})}
 				</section>
 			</div>

@@ -1,14 +1,14 @@
-import TopBar from './components/layout/TopBar/TopBar'
-import React from 'react'
-import PlayerInfo from './components/features/PlayerInfo/PlayerInfo'
-import AboutUs from './components/views/AboutUs/AboutUs'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/pages/Home/Home'
+import PlayerDetails from './components/pages/PlayerDetails/PlayerDetails'
 
 function App() {
 	return (
 		<div className='container'>
-			<TopBar />
-			<PlayerInfo />
-			<AboutUs />
+			<Routes>
+				<Route path='/' element={<Home />}></Route>
+				<Route path='/player/:nickname' element={<PlayerDetails />}></Route>
+			</Routes>
 		</div>
 	)
 }

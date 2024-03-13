@@ -1,0 +1,13 @@
+@import '../../../styles/settings.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.line {
+		height: 2px;
+		background-color: $color-green;
+		width: 100px;
+	}
+}
