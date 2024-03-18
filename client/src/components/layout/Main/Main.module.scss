@@ -4,7 +4,7 @@
 	padding: 2rem 10rem;
 
 	height: auto;
-	margin-top: 200px;
+	margin-top: 100px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -25,17 +25,32 @@
 		margin-top: 50px;
 		cursor: pointer;
 		position: relative;
+		background-image: none;
+		opacity: 0.8;
+		img {
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			transition: 1s ease-in-out;
+		}
+		h2 {
+			position: absolute;
+			color: $color-yellow;
+		}
 
 		&:hover {
-			background-image: url('../../../../public//stats.jpg');
-			opacity: 0.4;
-			// transform: rotateY(180deg);
+			// transition: all 2s linear;
+			// transition: background-image 2s ease-in-out;
+			// background-image: url('../../../../public//stats.jpg');
+			opacity: 1;
 			h2 {
-				position: absolute;
-				transition: all 0.5s linear;
-				font-size: 2rem;
-				z-index: 100;
+				display: none;
+			}
+			img {
+				height: 100%;
+				width: 100%;
 				opacity: 1;
+				transition: 2s ease-in-out;
 			}
 		}
 	}
