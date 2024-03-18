@@ -2,10 +2,13 @@ import TopBar from '../../layout/TopBar/TopBar'
 import styles from './PlayerDetails.module.scss'
 
 const PlayerDetails = () => {
+	const array = [1, 2, 3]
+	const obj = { ...array }
+	console.log(obj)
 	return (
 		<>
 			<TopBar src='../logo.jpg' nav={false} />
-			<section className={styles.container}>
+			<div className={styles.container}>
 				<div>
 					<img src='https://www.latoliga.pl/zawodnicy/rutkowski_pawel/01.jpg' alt='Paweł' />
 				</div>
@@ -27,7 +30,7 @@ const PlayerDetails = () => {
 						Numer koszulki: <span className={styles.bold}>48</span>
 					</p>
 				</div>
-			</section>
+			</div>
 		</>
 	)
 }
