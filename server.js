@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
 const connectToDB = require('./db')
 const playersRoutes = require('./routes/players.routes')
+const gamesRoutes = require('./routes/games.routes')
 
 const app = express()
 const server = app.listen(process.env.PORT || 8000, () => {
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use('/api/', playersRoutes)
+app.use('/api/', gamesRoutes)
 
 // Serve static files
 // app.use(express.static(path.join(__dirname, '/public')))

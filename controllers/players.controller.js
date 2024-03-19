@@ -10,7 +10,6 @@ exports.getAll = async (req, res) => {
 }
 
 exports.add = async (req, res) => {
-	console.log('jestem', req.body)
 
 	try {
 		let { name, nickname, birthYear, city, active, imgSrc } = req.body
