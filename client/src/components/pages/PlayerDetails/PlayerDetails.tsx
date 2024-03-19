@@ -1,12 +1,10 @@
 import TopBar from '../../layout/TopBar/TopBar'
+import SectionHeader from '../../views/SectionHeader/SectionHeader'
 import styles from './PlayerDetails.module.scss'
 
 const PlayerDetails = () => {
-	const array = [1, 2, 3]
-	const obj = { ...array }
-	console.log(obj)
 	return (
-		<>
+		<div className={styles.root}>
 			<TopBar src='../logo.jpg' nav={false} />
 			<div className={styles.container}>
 				<div>
@@ -31,7 +29,7 @@ const PlayerDetails = () => {
 					</p>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

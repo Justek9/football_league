@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner'
+import TopBar from '../../layout/TopBar/TopBar'
 import PlayerOverview from '../../views/PlayerOverview/PlayerOverview'
 import SectionHeader from '../../views/SectionHeader/SectionHeader'
 import styles from './PlayerInfo.module.scss'
@@ -29,6 +30,7 @@ const PlayerInfo = () => {
 
 	return (
 		<>
+			<TopBar src='../logo.jpg' nav={false} />
 			<div id='zawodnicy' className={styles.root}>
 				<SectionHeader header={'Zawodnicy'} />
 				{loading && <LoadingSpinner />}

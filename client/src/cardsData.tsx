@@ -13,6 +13,6 @@ export const cards = [
 	},
 	{
 		src: './background.jpeg',
-		title: 'O nas',
+		title: 'Zdjęcia',
 	},
 ]

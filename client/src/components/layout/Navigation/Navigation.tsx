@@ -1,20 +1,21 @@
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Navigation.module.scss'
 
 const Navigation: FC = () => {
 	return (
 		<ul className={styles.navigationContainer}>
 			<li>
-				<a href='#zawodnicy'>Zawodnicy</a>
+				<Link to='/zawodnicy'>Zawodnicy</Link>
 			</li>
 			<li>
-				<a href='#mecze'>Mecze</a>
+				<Link to='/mecze'>Mecze</Link>
 			</li>
 			<li>
-				<a href='#o-nas'>O nas</a>
+				<Link to='/o-nas'>O nas</Link>
 			</li>
 			<li>
-				<a href='#o-nas'>Statystyki</a>
+				<Link to='/statystyki'>Statystyki</Link>
 			</li>
 		</ul>
 	)
