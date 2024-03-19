@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import LoadingSpinner from '../../common/LoadingSpinner'
+import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner'
 import PlayerOverview from '../../views/PlayerOverview/PlayerOverview'
 import SectionHeader from '../../views/SectionHeader/SectionHeader'
 import styles from './PlayerInfo.module.scss'

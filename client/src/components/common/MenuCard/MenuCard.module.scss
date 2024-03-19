@@ -1,0 +1,42 @@
+@import '../../../styles/settings.scss';
+
+.card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	width: 400px;
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	background-color: $color-background-dark;
+	background-size: contain;
+	text-align: center;
+	margin-top: 50px;
+	cursor: pointer;
+	position: relative;
+	background-image: none;
+	opacity: 0.8;
+	img {
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		transition: 1s ease-in-out;
+	}
+	h2 {
+		position: absolute;
+		color: $color-yellow;
+	}
+
+	&:hover {
+		opacity: 1;
+		h2 {
+			display: none;
+		}
+		img {
+			height: 100%;
+			width: 100%;
+			opacity: 1;
+			transition: 2s ease-in-out;
+		}
+	}
+}
