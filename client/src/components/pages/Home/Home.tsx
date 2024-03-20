@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import Game from '../../common/Game/Game'
 import Cards from '../../layout/Cards/Cards'
 import TopBar from '../../layout/TopBar/TopBar'
+import SectionHeader from '../../views/SectionHeader/SectionHeader'
+
+import styles from './Home.module.scss'
 
 export type LatestGame = {
 	number: number
@@ -35,8 +38,11 @@ const Home = () => {
 	return (
 		<>
 			<TopBar src='./logo.jpg' />
-			{!loading && game && <Game latestGame={game} />}
-			<Cards />
+			<div className={styles.container}>
+				<SectionHeader header='Ostatni mecz' />
+				{!loading && game && <Game latestGame={game} />}
+				<Cards />
+			</div>
 		</>
 	)
 }

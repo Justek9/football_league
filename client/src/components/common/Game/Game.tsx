@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { LatestGame } from '../../pages/Home/Home'
 import styles from './Game.module.scss'
 
@@ -7,20 +8,27 @@ type gameProps = {
 
 const Game = ({ latestGame }: gameProps) => {
 	const date = latestGame[0].date.slice(0, 10)
+
+	const navigate = useNavigate()
+	const moreGamesClickHandler = () => {
+		navigate('/mecze')
+	}
+
 	return (
-		<div className={styles.root}>
-			<p>Mecz nr {latestGame[0].number}</p>
+		<section className={styles.root}>
+			<h1>Mecz nr {latestGame[0].number}</h1>
 			<p>{latestGame[0].aditionalInfo}</p>
-			<p>Data: {`${date} godzina 8:00`} </p>
-			<div>
-			{latestGame[0].result}
-			</div>
+			<p>
+				<b>Data: {`${date}, godzina 8:00`} </b>
+			</p>
+			<h2>{latestGame[0].result}</h2>
 			<p>Przebieg I połowy meczu:</p>
 			<p>
 				<span>0</span> <span>1 </span> <span>3'</span> <span>Jarosław Kucharski</span> (po podaniu Piotra Rytla)
 			</p>
 			<p>Przebieg II połowy meczu:</p>
-		</div>
+			<button className={styles.btn} onClick={moreGamesClickHandler}>Więcej meczy...</button>
+		</section>
 	)
 }
 
