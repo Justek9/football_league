@@ -5,7 +5,7 @@ import styles from './AboutUs.module.scss'
 const AboutUs = () => {
 	return (
 		<div className={styles.root}>
-			<TopBar src='../logo.jpg' nav={false} />
+			<TopBar src='../logo.jpg'/>
 			<div className={styles.container}>
 				<SectionHeader header={'O nas'} />
 				<p className={styles.text}>

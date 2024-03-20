@@ -1,6 +1,7 @@
 .root {
-	width: 1200px;
+	width: 1400px;
 	.container {
+		border: 2px solid yellow;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;

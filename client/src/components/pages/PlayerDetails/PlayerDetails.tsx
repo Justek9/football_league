@@ -5,7 +5,7 @@ import styles from './PlayerDetails.module.scss'
 const PlayerDetails = () => {
 	return (
 		<div className={styles.root}>
-			<TopBar src='../logo.jpg' nav={false} />
+			<TopBar src='../logo.jpg' />
 			<div className={styles.container}>
 				<div>
 					<img src='https://www.latoliga.pl/zawodnicy/rutkowski_pawel/01.jpg' alt='Paweł' />

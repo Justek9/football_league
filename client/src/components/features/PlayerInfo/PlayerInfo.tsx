@@ -30,7 +30,7 @@ const PlayerInfo = () => {
 
 	return (
 		<>
-			<TopBar src='../logo.jpg' nav={false} />
+			<TopBar src='../logo.jpg' />
 			<div id='zawodnicy' className={styles.root}>
 				<SectionHeader header={'Zawodnicy'} />
 				{loading && <LoadingSpinner />}

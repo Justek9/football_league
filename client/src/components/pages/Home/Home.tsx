@@ -5,7 +5,7 @@ import TopBar from '../../layout/TopBar/TopBar'
 const Home = () => {
 	return (
 		<>
-			<TopBar src='./logo.jpg' nav={true} />
+			<TopBar src='./logo.jpg' />
 			<Game />
 			<Cards />
 		</>

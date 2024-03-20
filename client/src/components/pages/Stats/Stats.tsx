@@ -5,7 +5,7 @@ import styles from './Stats.module.scss'
 const Stats = () => {
 	return (
 		<div className={styles.root}>
-			<TopBar src='../logo.jpg' nav={false} />
+			<TopBar src='../logo.jpg' />
 			<div className={styles.container}>
 				<SectionHeader header={'Statystyki'} />
 			</div>
