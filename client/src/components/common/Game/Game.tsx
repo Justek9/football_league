@@ -1,13 +1,19 @@
+import { LatestGame } from '../../pages/Home/Home'
 import styles from './Game.module.scss'
 
-const Game = () => {
+type gameProps = {
+	latestGame: LatestGame[]
+}
+
+const Game = ({ latestGame }: gameProps) => {
+	const date = latestGame[0].date.slice(0, 10)
 	return (
 		<div className={styles.root}>
-			<p>Mecz nr 61/2022 (1000)</p>
-			<p>45+47 min. sztuczne światło, temp. 5°C</p>
-			<p>Data: 19.03.2024 godzina 8:00</p>
+			<p>Mecz nr {latestGame[0].number}</p>
+			<p>{latestGame[0].aditionalInfo}</p>
+			<p>Data: {`${date} godzina 8:00`} </p>
 			<div>
-				<span>10</span>:<span>8</span>
+			{latestGame[0].result}
 			</div>
 			<p>Przebieg I połowy meczu:</p>
 			<p>

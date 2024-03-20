@@ -6,7 +6,7 @@ const Cards = () => {
 	return (
 		<div className={styles.container}>
 			{cards.map(card => (
-				<MenuCard title={card.title} src={card.src} />
+				<MenuCard key={card.title} title={card.title} src={card.src} />
 			))}
 		</div>
 	)
