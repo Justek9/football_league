@@ -1,19 +1,23 @@
 @import '../../../styles/settings.scss';
 
-table {
+.table {
 	margin-top: 2rem;
 	width: 500px;
 	text-align: center;
 	caption {
 		margin-bottom: 1rem;
+		font-size: 1.5rem;
+		color: $color-yellow;
 	}
-	tr {
-		td {
-			padding: 0.5rem;
-			border-bottom: 3px solid $color-background-dark;
-		}
-		th {
-			padding: 0.5rem;
+	tbody {
+		tr {
+			td {
+				padding: 0.5rem;
+				border-bottom: 3px solid $color-background-dark;
+			}
+			th {
+				padding: 0.5rem;
+			}
 		}
 	}
 }

@@ -6,7 +6,7 @@ import Home from './components/pages/Home/Home'
 import Photos from './components/pages/Photos/Photos'
 import PlayerDetails from './components/pages/PlayerDetails/PlayerDetails'
 import Stats from './components/pages/Stats/Stats'
-import AboutUs from './components/views/AboutUs/AboutUs'
+import AboutUs from './components/pages/AboutUs/AboutUs'
 
 function App() {
 	return (

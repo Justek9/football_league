@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Game from '../../common/Game/Game'
+import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner'
 import Cards from '../../layout/Cards/Cards'
 import TopBar from '../../layout/TopBar/TopBar'
 import SectionHeader from '../../views/SectionHeader/SectionHeader'
@@ -17,21 +18,23 @@ export type LatestGame = {
 }
 
 const Home = () => {
-	const [game, setGame] = useState<LatestGame[] | []>([])
+	const [games, setGames] = useState<LatestGame[] | []>([])
 	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(false)
 
 	useEffect(() => {
 		setLoading(true)
+		setError(false)
 		fetch('http://localhost:8000/api/games')
 			.then(res => res.json())
 			.then(data => {
-				console.log(data)
-				setGame(data)
+				setGames(data)
 				setLoading(false)
 			})
 			.catch(error => {
 				console.error('Error fetching data:', error)
 				setLoading(false)
+				setError(true)
 			})
 	}, [])
 
@@ -40,7 +43,9 @@ const Home = () => {
 			<TopBar src='./logo.jpg' />
 			<div className={styles.container}>
 				<SectionHeader header='Ostatni mecz' />
-				{!loading && game && <Game latestGame={game} />}
+				{error && <p>Errror occured while fetching data...Please try again</p>}
+				{loading && <LoadingSpinner />}
+				{!loading && games && <Game games={games} latestGame={games.slice(-1)} />}
 				<Cards />
 			</div>
 		</>

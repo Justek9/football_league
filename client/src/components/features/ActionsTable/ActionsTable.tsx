@@ -1,19 +1,15 @@
 import styles from './ActionsTable.module.scss'
 
-const ActionsTable = () => {
-	const actions = [
-		{ score: 'green', player: 'Paweł Rutkowski', assist: 'Kazik', minute: '3' },
-		{ score: 'green', player: 'Jarek', assist: 'Justek', minute: '10' },
-		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '45' },
-		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '50' },
-		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '51' },
-		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '54' },
-	]
+type ActionsTableProps = {
+	actions: any[]
+}
+
+const ActionsTable = ({ actions }: ActionsTableProps) => {
 	let scoreRed = 0
 	let scoreGreen = 0
 
 	return (
-		<table>
+		<table className={styles.table}>
 			<caption>Przebieg meczu</caption>
 			<thead>
 				<tr>
@@ -25,11 +21,11 @@ const ActionsTable = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{actions.map(action => {
+				{actions.map((action, i) => {
 					if (action.score === 'red') scoreRed++
 					if (action.score === 'green') scoreGreen++
 					return (
-						<tr>
+						<tr key={i}>
 							<td>{scoreGreen}</td>
 							<td>{scoreRed}</td>
 							<td>{action.minute}'</td>
@@ -41,11 +37,11 @@ const ActionsTable = () => {
 			</tbody>
 			<tfoot>
 				<tr>
-					<th scope='row' colspan='4'>
-						Wynik końcowy:
+					<th scope='row' colSpan={4}>
+						Wynik końcowy (zieloni : czerwoni):
 					</th>
 					<td>
-						{scoreGreen}:{scoreRed}
+						{scoreGreen} : {scoreRed}
 					</td>
 				</tr>
 			</tfoot>

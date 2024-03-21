@@ -1,5 +1,5 @@
 import TopBar from '../../layout/TopBar/TopBar'
-import SectionHeader from '../SectionHeader/SectionHeader'
+import SectionHeader from '../../views/SectionHeader/SectionHeader'
 import styles from './AboutUs.module.scss'
 
 const AboutUs = () => {
