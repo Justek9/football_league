@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import ActionsTable from '../../features/ActionsTable/ActionsTable'
 import { LatestGame } from '../../pages/Home/Home'
 import styles from './Game.module.scss'
 
@@ -21,13 +22,14 @@ const Game = ({ latestGame }: gameProps) => {
 			<p>
 				<b>Data: {`${date}, godzina 8:00`} </b>
 			</p>
-			<h2>{latestGame[0].result}</h2>
-			<p>Przebieg I połowy meczu:</p>
-			<p>
-				<span>0</span> <span>1 </span> <span>3'</span> <span>Jarosław Kucharski</span> (po podaniu Piotra Rytla)
-			</p>
-			<p>Przebieg II połowy meczu:</p>
-			<button className={styles.btn} onClick={moreGamesClickHandler}>Więcej meczy...</button>
+			<h2>
+				<span className={styles.teamColor}>zieloni </span>
+				{latestGame[0].result} <span className={styles.teamColor}>czerwoni </span>
+			</h2>
+			<ActionsTable />
+			<button className={styles.btn} onClick={moreGamesClickHandler}>
+				Zobacz więcej meczów...
+			</button>
 		</section>
 	)
 }

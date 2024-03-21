@@ -5,17 +5,22 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	.teamColor {
+		color: $font-color-silver;
+	}
 	h2 {
 		color: $color-yellow;
 	}
 	.btn {
 		border-radius: 5px;
 		padding: 1rem;
-		background-color: $color-yellow;
+		color: $color-yellow;
 		cursor: pointer;
 		margin-top: 2rem;
+		border: none;
+		background-color: $color-background;
 		&:hover {
-			background-color: $font-color-silver;
+			color: $font-color-silver;
 		}
 	}
 }
