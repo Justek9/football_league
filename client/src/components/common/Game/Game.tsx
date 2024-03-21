@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import ActionsTable from '../../features/ActionsTable/ActionsTable'
 import { LatestGame } from '../../pages/Home/Home'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import styles from './Game.module.scss'
+import { useEffect } from 'react'
 
 type gameProps = {
 	latestGame: LatestGame | LatestGame[]
@@ -14,11 +17,15 @@ const Game = ({ latestGame, games }: gameProps) => {
 
 	const navigate = useNavigate()
 	const moreGamesClickHandler = () => {
-		navigate('/mecze', )
+		navigate('/mecze')
 	}
 
+	useEffect(() => {
+		AOS.init()
+	}, [])
+
 	return (
-		<section className={styles.root}>
+		<section className={styles.root} data-aos='fade-left'>
 			<h1>Mecz nr {latestGame.number}</h1>
 			<p>{latestGame.aditionalInfo}</p>
 			<p>
