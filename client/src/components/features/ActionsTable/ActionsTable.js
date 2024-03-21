@@ -1,9 +1,20 @@
 import styles from './ActionsTable.module.scss'
 
 const ActionsTable = () => {
+	const actions = [
+		{ score: 'green', player: 'Paweł Rutkowski', assist: 'Kazik', minute: '3' },
+		{ score: 'green', player: 'Jarek', assist: 'Justek', minute: '10' },
+		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '45' },
+		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '50' },
+		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '51' },
+		{ score: 'red', player: 'Krzysiek', assist: 'Dominik', minute: '54' },
+	]
+	let scoreRed = 0
+	let scoreGreen = 0
+
 	return (
 		<table>
-			<caption>Przebieg I połowy</caption>
+			<caption>Przebieg meczu</caption>
 			<thead>
 				<tr>
 					<th scope='col'>ZI</th>
@@ -14,41 +25,28 @@ const ActionsTable = () => {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>0</td>
-					<td>1</td>
-					<td>3</td>
-					<td>Paweł Rutkowski</td>
-					<td>Kazik</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>1</td>
-					<td>10</td>
-					<td>Jarek</td>
-					<td>Justek</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>1</td>
-					<td>45</td>
-					<td>Krzysiek</td>
-					<td>Dominik</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>1</td>
-					<td>60</td>
-					<td>Mateusz</td>
-					<td>Kazik</td>
-				</tr>
+				{actions.map(action => {
+					if (action.score === 'red') scoreRed++
+					if (action.score === 'green') scoreGreen++
+					return (
+						<tr>
+							<td>{scoreGreen}</td>
+							<td>{scoreRed}</td>
+							<td>{action.minute}'</td>
+							<td>{action.player}</td>
+							<td>{action.assist}</td>
+						</tr>
+					)
+				})}
 			</tbody>
 			<tfoot>
 				<tr>
 					<th scope='row' colspan='4'>
 						Wynik końcowy:
 					</th>
-					<td>3:1</td>
+					<td>
+						{scoreGreen}:{scoreRed}
+					</td>
 				</tr>
 			</tfoot>
 		</table>
