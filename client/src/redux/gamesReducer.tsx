@@ -1,14 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit'
-import initialState from './initialState'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-const gamesSlice = createSlice({
-	name: 'games',
-	initialState: initialState.games,
+export interface Game {
+	id: number
+	name: string
+}
+
+interface GameState {
+	games: Game[]
+}
+
+const initialState: GameState = {
+	games: [],
+}
+
+export const GamesSlice = createSlice({
+	name: 'game',
+	initialState,
 	reducers: {
-		default: state => {
-			state
+		addGame: (state, action: PayloadAction<{ name: string }>) => {
+			state.games.push({ id: state.games.length, name: action.payload.name })
 		},
 	},
 })
 
-export default gamesSlice.reducer
+export default GamesSlice.reducer
+export const {addGame} = GamesSlice.actions

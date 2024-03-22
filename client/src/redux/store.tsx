@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import gamesReducer from './gamesReducer'
-
 import playersReducer from './playersReducer'
 
-const store = configureStore({
+export const store = configureStore({
 	reducer: {
 		games: gamesReducer,
 		players: playersReducer,
@@ -11,4 +11,6 @@ const store = configureStore({
 	devTools: process.env.NODE_ENV !== 'production',
 })
 
-export default store
+export const useAppDispatch: () => typeof store.dispatch = useDispatch
+
+export const useAppSelctor: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
