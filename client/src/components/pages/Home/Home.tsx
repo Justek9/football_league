@@ -51,7 +51,7 @@ const Home = () => {
 				<SectionHeader header='Ostatni mecz' />
 				{error && <p>Errror occured while fetching data...Please try again</p>}
 				{loading && <LoadingSpinner />}
-				{!loading && !error && games && <Game games={games} latestGame={games.slice(-1)} />}
+				{!loading && !error && games && <Game showMore={true} games={games} latestGame={games.slice(-1)} />}
 				<Cards />
 			</div>
 		</>

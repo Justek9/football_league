@@ -8,10 +8,11 @@ import { useEffect } from 'react'
 
 type gameProps = {
 	latestGame: LatestGame | LatestGame[]
-	games: LatestGame[]
+	games?: LatestGame[]
+	showMore: boolean
 }
 
-const Game = ({ latestGame, games }: gameProps) => {
+const Game = ({ latestGame, games, showMore }: gameProps) => {
 	latestGame = Array.isArray(latestGame) ? latestGame[0] : latestGame
 	const date = latestGame.date.slice(0, 10)
 
@@ -36,9 +37,11 @@ const Game = ({ latestGame, games }: gameProps) => {
 				{latestGame.result} <span className={styles.teamColor}>czerwoni </span>
 			</h2>
 			<ActionsTable actions={latestGame.actions} />
-			<button className={styles.btn} onClick={moreGamesClickHandler}>
-				Zobacz więcej meczów...
-			</button>
+			{showMore && (
+				<button className={styles.btn} onClick={moreGamesClickHandler}>
+					Zobacz więcej meczów...
+				</button>
+			)}
 		</section>
 	)
 }
