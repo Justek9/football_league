@@ -1,14 +1,23 @@
 import TopBar from '../../layout/TopBar/TopBar'
 import SectionHeader from '../../views/SectionHeader/SectionHeader'
+
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 import styles from './AboutUs.module.scss'
+import { useEffect } from 'react'
 
 const AboutUs = () => {
+	useEffect(() => {
+		AOS.init()
+	}, [])
+
 	return (
 		<div className={styles.root}>
-			<TopBar src='../logo.jpg'/>
+			<TopBar src='../logo.jpg' />
 			<div className={styles.container}>
 				<SectionHeader header={'O nas'} />
-				<p className={styles.text}>
+				<p className={styles.text} data-aos='fade-left'>
 					Witajcie w świecie naszej amatorskiej ligi piłki nożnej! Jesteśmy pasjonatami futbolu, którzy postanowili
 					stworzyć to miejsce dla wszystkich miłośników piłki nożnej w naszej społeczności. Nasza liga została założona
 					z myślą o tym, aby stworzyć przyjazne środowisko dla wszystkich, którzy kochają ten piękny sport i chcą się

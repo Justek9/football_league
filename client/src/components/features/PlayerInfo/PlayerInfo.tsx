@@ -3,6 +3,10 @@ import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner'
 import TopBar from '../../layout/TopBar/TopBar'
 import PlayerOverview from '../../views/PlayerOverview/PlayerOverview'
 import SectionHeader from '../../views/SectionHeader/SectionHeader'
+
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 import styles from './PlayerInfo.module.scss'
 
 export type Player = {
@@ -28,6 +32,10 @@ const PlayerInfo = () => {
 			})
 	}, [])
 
+	useEffect(() => {
+		AOS.init()
+	}, [])
+
 	return (
 		<>
 			<TopBar src='../logo.jpg' />
@@ -35,7 +43,7 @@ const PlayerInfo = () => {
 				<SectionHeader header={'Zawodnicy'} />
 				{loading && <LoadingSpinner />}
 				{!loading && (
-					<section className={styles.container}>
+					<section className={styles.container} data-aos='fade-left'>
 						{players.map(player => {
 							return <PlayerOverview key={player.name} player={player} />
 						})}

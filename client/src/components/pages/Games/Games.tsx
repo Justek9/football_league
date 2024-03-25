@@ -15,17 +15,21 @@ const Games = () => {
 			<div className={styles.container}>
 				<SectionHeader header={'Mecze'} />
 			</div>
-			<div className={styles.dates}>
-				{games.map((g, i) => {
-					return (
-						<span
-							key={i}
-							onClick={() => setGameToShow([g])}
-							className={g.date === gameToShow[0].date ? styles.active : ''}>
-							{g.date.slice(0, 10)}
-						</span>
-					)
-				})}
+
+			<div className={styles.datesContainer}>
+				<p>Kliknij w datę, żeby zobaczyć szczegóły meczu:</p>
+				<div className={styles.dates}>
+					{games.map((g, i) => {
+						return (
+							<span
+								key={i}
+								onClick={() => setGameToShow([g])}
+								className={g.date === gameToShow[0].date ? styles.active : ''}>
+								{g.date.slice(0, 10)}
+							</span>
+						)
+					})}
+				</div>
 			</div>
 			<Game latestGame={gameToShow} showMore={false} />
 		</div>

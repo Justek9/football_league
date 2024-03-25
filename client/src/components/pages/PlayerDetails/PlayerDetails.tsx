@@ -1,12 +1,21 @@
+import { useEffect } from 'react'
 import TopBar from '../../layout/TopBar/TopBar'
-import SectionHeader from '../../views/SectionHeader/SectionHeader'
+
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 import styles from './PlayerDetails.module.scss'
 
 const PlayerDetails = () => {
+	
+	useEffect(() => {
+		AOS.init()
+	}, [])
+
 	return (
 		<div className={styles.root}>
 			<TopBar src='../logo.jpg' />
-			<div className={styles.container}>
+			<div className={styles.container} data-aos='fade-left'>
 				<div>
 					<img src='https://www.latoliga.pl/zawodnicy/rutkowski_pawel/01.jpg' alt='Paweł' />
 				</div>
