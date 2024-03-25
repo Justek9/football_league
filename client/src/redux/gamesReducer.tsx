@@ -1,8 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface Game {
-	id: number
-	name: string
+	number: number
+	actions: string[]
+	minutes: string
+	aditionalInfo: string
+	result: string
+	date: string
+	players: string[]
 }
 
 interface GameState {
@@ -17,11 +22,11 @@ export const GamesSlice = createSlice({
 	name: 'game',
 	initialState,
 	reducers: {
-		addGame: (state, action: PayloadAction<{ name: string }>) => {
-			state.games.push({ id: state.games.length, name: action.payload.name })
+		addGames: (state, action: PayloadAction<{ games: Game[] }>) => {
+			state.games = [...action.payload.games]
 		},
 	},
 })
 
 export default GamesSlice.reducer
-export const {addGame} = GamesSlice.actions
+export const { addGames } = GamesSlice.actions

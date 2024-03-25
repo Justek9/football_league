@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react'
+import { convertCompilerOptionsFromJson } from 'typescript'
+import { addGames } from '../../../redux/gamesReducer'
+import { useAppDispatch } from '../../../redux/store'
 import Game from '../../common/Game/Game'
 import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner'
 import Cards from '../../layout/Cards/Cards'
@@ -22,6 +25,8 @@ const Home = () => {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(false)
 
+	const dispatch = useAppDispatch()
+
 	useEffect(() => {
 		setLoading(true)
 		setError(false)
@@ -30,6 +35,7 @@ const Home = () => {
 			.then(data => {
 				setGames(data)
 				setLoading(false)
+				dispatch(addGames({ games: data }))
 			})
 			.catch(error => {
 				console.error('Error fetching data:', error)

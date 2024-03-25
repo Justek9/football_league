@@ -2,9 +2,8 @@ import MenuCard from '../../common/MenuCard/MenuCard'
 import styles from './Cards.module.scss'
 import { cards } from '../../../cardsData'
 
-import { useEffect } from 'react'
-
 const Cards = () => {
+
 	return (
 		<div className={styles.container}>
 			{cards.map(card => (
