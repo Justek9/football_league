@@ -21,7 +21,7 @@ const ActionsTable = ({ actions }: ActionsTableProps) => {
 				</tr>
 			</thead>
 			<tbody>
-				{actions.map((action, i) => {
+				{actions?.map((action, i) => {
 					if (action.score === 'red') scoreRed++
 					if (action.score === 'green') scoreGreen++
 					return (

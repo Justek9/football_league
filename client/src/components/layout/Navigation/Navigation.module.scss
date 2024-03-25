@@ -18,6 +18,8 @@
 			text-decoration: none;
 			padding: 0.7rem;
 			border-radius: $radius;
+			white-space: nowrap;
+
 			&:hover {
 				background-color: $color-background-dark;
 			}

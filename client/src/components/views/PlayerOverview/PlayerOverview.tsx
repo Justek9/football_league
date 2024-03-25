@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Player } from '../../features/PlayerInfo/PlayerInfo'
+import { Player } from '../../../redux/playersReducer'
 import styles from './PlayerOverview.module.scss'
 
 type PlayerOverviewProps = {

@@ -1,26 +1,17 @@
 import { useEffect, useState } from 'react'
 import { addGames } from '../../../redux/gamesReducer'
+import { addPlayers } from '../../../redux/playersReducer'
 import { useAppDispatch } from '../../../redux/store'
 import Game from '../../common/Game/Game'
 import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner'
 import Cards from '../../layout/Cards/Cards'
 import TopBar from '../../layout/TopBar/TopBar'
 import SectionHeader from '../../views/SectionHeader/SectionHeader'
-
+import { SingleGame } from '../../../redux/gamesReducer'
 import styles from './Home.module.scss'
 
-export type LatestGame = {
-	number: number
-	actions: string[]
-	minutes: string
-	aditionalInfo: string
-	result: string
-	date: string
-	players: string[]
-}
-
 const Home = () => {
-	const [games, setGames] = useState<LatestGame[] | []>([])
+	const [games, setGames] = useState<SingleGame[] | []>([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(false)
 
@@ -35,6 +26,18 @@ const Home = () => {
 				setGames(data)
 				setLoading(false)
 				dispatch(addGames({ games: data }))
+			})
+			.catch(error => {
+				console.error('Error fetching data:', error)
+				setLoading(false)
+				setError(true)
+			})
+
+		fetch('http://localhost:8000/api/players')
+			.then(res => res.json())
+			.then(data => {
+				dispatch(addPlayers({ players: data }))
+				setLoading(false)
 			})
 			.catch(error => {
 				console.error('Error fetching data:', error)

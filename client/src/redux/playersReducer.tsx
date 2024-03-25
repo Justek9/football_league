@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export interface Player {
-	id: number
+export type Player = {
 	name: string
+	nickname: string
+	birthYear: number
+	city: string
+	active: boolean
+	imgSrc: string
 }
 
 interface PlayerState {
@@ -17,11 +21,11 @@ export const PlayersSlice = createSlice({
 	name: 'Player',
 	initialState,
 	reducers: {
-		addPlayer: (state, action: PayloadAction<{ name: string }>) => {
-			state.players.push({ id: state.players.length, name: action.payload.name })
+		addPlayers: (state, action: PayloadAction<{ players: Player[] }>) => {
+			state.players = [...action.payload.players]
 		},
 	},
 })
 
 export default PlayersSlice.reducer
-export const { addPlayer } = PlayersSlice.actions
+export const { addPlayers } = PlayersSlice.actions
