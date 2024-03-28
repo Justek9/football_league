@@ -10,7 +10,6 @@ exports.getAll = async (req, res) => {
 }
 
 exports.add = async (req, res) => {
-
 	try {
 		let { name, nickname, birthYear, city, active, imgSrc } = req.body
 		if (name && nickname && birthYear && city && active && imgSrc) {
@@ -18,6 +17,16 @@ exports.add = async (req, res) => {
 			await newPlayer.save()
 			res.json(newPlayer)
 		}
+	} catch (err) {
+		res.status(500).json(err + '')
+	}
+}
+
+exports.update = async (req, res) => {
+	try {
+		let toUpdate = req.body
+		await Players.updateOne({ _id: req.params.id }, { $set: toUpdate })
+		res.json('updated')
 	} catch (err) {
 		res.status(500).json(err + '')
 	}

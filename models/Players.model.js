@@ -7,6 +7,7 @@ const playersSchema = new mongoose.Schema({
 	city: { type: String },
 	active: { type: Boolean },
 	imgSrc: { type: String },
+	short: { type: String },
 })
 
 module.exports = mongoose.model('Players', playersSchema)
