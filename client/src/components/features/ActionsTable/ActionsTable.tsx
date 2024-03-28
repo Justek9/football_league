@@ -1,3 +1,5 @@
+import { STATES } from 'mongoose'
+import { useAppSelctor } from '../../../redux/store'
 import styles from './ActionsTable.module.scss'
 
 type ActionsTableProps = {
@@ -7,6 +9,18 @@ type ActionsTableProps = {
 const ActionsTable = ({ actions }: ActionsTableProps) => {
 	let scoreRed = 0
 	let scoreGreen = 0
+	const players= useAppSelctor(state=>state.players.players)
+
+	const getFullName = (short: string)=>{
+		let fullName
+
+		players.find(player=>{
+			if(player.short === short) fullName = player.name
+		})
+
+		return fullName
+
+	}
 
 	return (
 		<table className={styles.table}>
@@ -29,8 +43,8 @@ const ActionsTable = ({ actions }: ActionsTableProps) => {
 							<td>{scoreGreen}</td>
 							<td>{scoreRed}</td>
 							<td>{action.minute}'</td>
-							<td>{action.player}</td>
-							<td>{action.assist}</td>
+							<td>{getFullName(action.player)}</td>
+							<td>{getFullName(action.assist)}</td>
 						</tr>
 					)
 				})}

@@ -24,12 +24,10 @@ const Home = () => {
 			.then(res => res.json())
 			.then(data => {
 				setGames(data)
-				setLoading(false)
 				dispatch(addGames({ games: data }))
 			})
 			.catch(error => {
 				console.error('Error fetching data:', error)
-				setLoading(false)
 				setError(true)
 			})
 
