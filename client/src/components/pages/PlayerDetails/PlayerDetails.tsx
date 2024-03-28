@@ -5,9 +5,16 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 import styles from './PlayerDetails.module.scss'
+import { useAppSelctor } from '../../../redux/store'
+import { useParams } from 'react-router-dom'
 
 const PlayerDetails = () => {
-	
+	const { nickname } = useParams()
+	const players = useAppSelctor(state => state.players.players)
+	let playerToShow = players.find(player => player.nickname === nickname)
+
+	console.log(playerToShow)
+
 	useEffect(() => {
 		AOS.init()
 	}, [])
@@ -17,24 +24,24 @@ const PlayerDetails = () => {
 			<TopBar src='../logo.jpg' />
 			<div className={styles.container} data-aos='fade-left'>
 				<div>
-					<img src='https://www.latoliga.pl/zawodnicy/rutkowski_pawel/01.jpg' alt='Paweł' />
+					<img src={playerToShow?.detailsImgSrc} alt={playerToShow?.name} />
 				</div>
 				<div>
-					<h2>Paweł Rutkowski</h2>
+					<h2>{playerToShow?.name}</h2>
 					<p>
-						Pseudonim: <span className={styles.bold}>Florian</span>
+						Pseudonim: <span className={styles.bold}>{playerToShow?.nickname}</span>
 					</p>
 					<p>
-						Identyfikator: <span className={styles.bold}>RU</span>
+						Identyfikator: <span className={styles.bold}>{playerToShow?.short}</span>
 					</p>
 					<p>
-						Rok urodzenia: <span className={styles.bold}>1987</span>
+						Rok urodzenia: <span className={styles.bold}>{playerToShow?.birthYear}</span>
 					</p>
 					<p>
-						Miasto: <span className={styles.bold}>Warszawa</span>
+						Miasto: <span className={styles.bold}>{playerToShow?.city}</span>
 					</p>
 					<p>
-						Numer koszulki: <span className={styles.bold}>48</span>
+						Numer koszulki: <span className={styles.bold}>{playerToShow?.number}</span>
 					</p>
 				</div>
 			</div>

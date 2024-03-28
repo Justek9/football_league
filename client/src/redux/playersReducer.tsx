@@ -7,6 +7,9 @@ export type Player = {
 	city: string
 	active: boolean
 	imgSrc: string
+	short: string
+	number: number
+	detailsImgSrc: string
 }
 
 interface PlayerState {

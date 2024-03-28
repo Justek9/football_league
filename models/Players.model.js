@@ -8,6 +8,8 @@ const playersSchema = new mongoose.Schema({
 	active: { type: Boolean },
 	imgSrc: { type: String },
 	short: { type: String },
+	number: { type: Number },
+	detailsImgSrc: { type: String },
 })
 
 module.exports = mongoose.model('Players', playersSchema)

@@ -27,3 +27,13 @@ exports.getAll = async (req, res) => {
 		res.status(500).json(err + '')
 	}
 }
+
+exports.update = async (req, res) => {
+	try {
+		let toUpdate = req.body
+		await Games.updateOne({ _id: req.params.id }, { $set: toUpdate })
+		res.json('updated')
+	} catch (err) {
+		res.status(500).json(err + '')
+	}
+}
