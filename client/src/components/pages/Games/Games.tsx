@@ -31,7 +31,7 @@ const Games = () => {
 					})}
 				</div>
 			</div>
-			<Game latestGame={gameToShow} showMore={false} />
+			<Game latestGame={gameToShow[0]} showMore={false} />
 		</div>
 	)
 }

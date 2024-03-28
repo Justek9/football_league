@@ -4,9 +4,10 @@ import styles from './PlayerOverview.module.scss'
 
 type PlayerOverviewProps = {
 	player: Player
+	game: boolean
 }
 
-const PlayerOverview = ({ player }: PlayerOverviewProps) => {
+const PlayerOverview = ({ player, game }: PlayerOverviewProps) => {
 	const navigate = useNavigate()
 	const playerDetailsHandler = () => {
 		navigate(`/player/${player.nickname}`)
@@ -17,8 +18,9 @@ const PlayerOverview = ({ player }: PlayerOverviewProps) => {
 			<img src={player.imgSrc} alt={player.name} className={styles.img} onClick={playerDetailsHandler} />
 			<p className={styles.name}>{player.name}</p>
 			<p className={styles.nickname}>{player.nickname}</p>
-			<p>{player.birthYear}</p>
-			<p>{player.city}</p>
+			{!game && <p>{player.birthYear}</p>}
+			{!game && <p>{player.city}</p>}
+			
 		</div>
 	)
 }

@@ -7,7 +7,7 @@ export interface SingleGame {
 	aditionalInfo: string
 	result: string
 	date: string
-	players: string[]
+	players: [{ green: string[]; red: string[] }]
 }
 
 interface GameState {

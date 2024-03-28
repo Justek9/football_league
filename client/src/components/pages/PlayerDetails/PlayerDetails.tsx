@@ -13,8 +13,6 @@ const PlayerDetails = () => {
 	const players = useAppSelctor(state => state.players.players)
 	let playerToShow = players.find(player => player.nickname === nickname)
 
-	console.log(playerToShow)
-
 	useEffect(() => {
 		AOS.init()
 	}, [])

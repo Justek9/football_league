@@ -24,7 +24,7 @@ const PlayerInfo = () => {
 
 				<section className={styles.container} data-aos='fade-left'>
 					{players.map(player => {
-						return <PlayerOverview key={player.name} player={player} />
+						return <PlayerOverview game={false} key={player.name} player={player} />
 					})}
 				</section>
 			</div>
