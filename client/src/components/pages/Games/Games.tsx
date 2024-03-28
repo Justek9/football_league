@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAppSelctor } from '../../../redux/store'
 import Game from '../../common/Game/Game'
 import TopBar from '../../layout/TopBar/TopBar'
@@ -8,6 +9,12 @@ import styles from './Games.module.scss'
 const Games = () => {
 	const games = useAppSelctor(state => state.games.games)
 	const [gameToShow, setGameToShow] = useState(games.slice(-1))
+
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		if (games.length === 0) navigate('/')
+	}, [games, navigate])
 
 	return (
 		<div className={styles.root}>

@@ -13,6 +13,8 @@ const PlayerOverview = ({ player, game }: PlayerOverviewProps) => {
 		navigate(`/player/${player.nickname}`)
 	}
 
+	if (!player) navigate('/')
+	
 	return (
 		<div className={styles.container}>
 			<img src={player.imgSrc} alt={player.name} className={styles.img} onClick={playerDetailsHandler} />
@@ -20,7 +22,6 @@ const PlayerOverview = ({ player, game }: PlayerOverviewProps) => {
 			<p className={styles.nickname}>{player.nickname}</p>
 			{!game && <p>{player.birthYear}</p>}
 			{!game && <p>{player.city}</p>}
-			
 		</div>
 	)
 }
