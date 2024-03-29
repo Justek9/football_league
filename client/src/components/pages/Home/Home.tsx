@@ -20,7 +20,11 @@ const Home = () => {
 	useEffect(() => {
 		setLoading(true)
 		setError(false)
-		fetch('http://localhost:8000/api/games')
+		let url: string = ''
+		if (process.env.NODE_ENV === 'production') url = `/api`
+		else url = `http://localhost:8000/api`
+
+		fetch(`${url}/games`)
 			.then(res => res.json())
 			.then(data => {
 				setGames(data)
@@ -31,7 +35,7 @@ const Home = () => {
 				setError(true)
 			})
 
-		fetch('http://localhost:8000/api/players')
+		fetch(`${url}/players`)
 			.then(res => res.json())
 			.then(data => {
 				dispatch(addPlayers({ players: data }))
