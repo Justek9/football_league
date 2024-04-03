@@ -1,21 +1,18 @@
 @import '../../../styles/settings.scss';
 
-.hamburgerIcon {
-	display: none;
-}
-
 .navigationContainer {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding: 2rem 5rem;
+	padding: 2rem auto;
 	background-color: $color-background;
 	position: relative;
-
-	&.menuOpen {
-		border: 2px solide red;
-		max-height: 800px;
+	.menuOpen {
+		border: 2px solid red;
+		position: absolute;
+		right: 0;
+		max-height: none;
 	}
 
 	li {
@@ -26,7 +23,7 @@
 			text-align: center;
 			color: $font-color-silver;
 			text-decoration: none;
-			padding: 0.7rem;
+			padding: 0.4rem;
 			border-radius: $radius;
 			white-space: nowrap;
 
@@ -37,14 +34,11 @@
 	}
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	.hamburgerIcon {
 		display: block;
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
 		cursor: pointer;
-		z-index: 999;
+		margin-top: 1rem;
 
 		.bar1,
 		.bar2,
@@ -76,5 +70,37 @@
 		overflow: hidden;
 		height: auto;
 		max-height: 0;
+		flex-wrap: nowrap;
+
+		li {
+			display: none;
+		}
+	}
+
+	.navigationContainer.menuOpen {
+		max-height: none;
+		height: 400px;
+		position: absolute;
+		left: 0;
+		width: 100vw;
+		top: 110px;
+		background-color: #fefbf4;
+
+		li {
+			display: block;
+			border-bottom: 2px solid $color-background-dark;
+			padding: 2rem;
+			a {
+				color: $color-background-dark;
+				padding: 0.7rem;
+				border-radius: $radius;
+				white-space: nowrap;
+
+				&:hover {
+					color: $font-color-silver;
+					background-color: $color-background-dark;
+				}
+			}
+		}
 	}
 }
