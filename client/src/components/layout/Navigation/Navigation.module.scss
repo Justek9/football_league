@@ -68,7 +68,7 @@
 		position: relative;
 		transition: height 0.3s ease-in-out;
 		overflow: hidden;
-		height: auto;
+		height: 100vh;
 		max-height: 0;
 		flex-wrap: nowrap;
 
@@ -84,7 +84,7 @@
 		left: 0;
 		width: 100vw;
 		top: 110px;
-		background-color: #fefbf4;
+		background-color: $backgroud-light-mobile-nav;
 
 		li {
 			display: block;
