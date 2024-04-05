@@ -31,3 +31,14 @@ exports.update = async (req, res) => {
 		res.status(500).json(err + '')
 	}
 }
+
+exports.delete = async (req, res) => {
+	try {
+		const id = req.params.id
+		const playerToDelete = await Players.findById(id)
+		if (playerToDelete) await Players.deleteOne({ _id: id })
+		res.json({ message: 'OK, player deleted' })
+	} catch (err) {
+		res.status(500).json(err + '')
+	}
+}
