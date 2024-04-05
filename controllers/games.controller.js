@@ -37,3 +37,14 @@ exports.update = async (req, res) => {
 		res.status(500).json(err + '')
 	}
 }
+
+exports.delete = async (req, res) => {
+	try {
+		const id = req.params.id
+		const gameToDelete = await Games.findById(id)
+		if (gameToDelete) await Games.deleteOne({ _id: id })
+		res.json({ message: 'OK, game deleted' })
+	} catch (err) {
+		res.status(500).json(err + '')
+	}
+}
