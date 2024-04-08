@@ -3,6 +3,7 @@
 .root {
 	height: 100%;
 	position: relative;
+	margin-top: 2rem;
 
 	.slideStyles {
 		width: 100%;
@@ -23,9 +24,13 @@
 		}
 	}
 	.arrow {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		position: absolute;
 		top: 50%;
-		transform: translate(0, -50%);
+		transform: translate(-50%, -50%);
 		font-size: 30px;
 		color: $color-background-dark;
 		z-index: 1;
@@ -38,6 +43,7 @@
 }
 @media (max-width: 576px) {
 	.root {
+		width: 100vw;
 		.arrow {
 			font-size: 20px;
 			width: 35px;

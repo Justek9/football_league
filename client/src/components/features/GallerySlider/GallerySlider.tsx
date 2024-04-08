@@ -28,10 +28,10 @@ const GallerySlider = ({ slides }: GallerySliderProps) => {
 
 	return (
 		<div className={styles.root}>
-			<div className={`flex-center ${styles.arrow}`} style={{ left: '32px' }} onClick={goToPrevious}>
+			<div className={`${styles.arrow}`} style={{ left: '32px' }} onClick={goToPrevious}>
 				<FontAwesomeIcon icon={faArrowLeft} />
 			</div>
-			<div className={`flex-center ${styles.arrow}`} style={{ right: '32px' }} onClick={goToNext}>
+			<div className={`${styles.arrow}`} style={{ right: '32px' }} onClick={goToNext}>
 				<FontAwesomeIcon icon={faArrowRight} />
 			</div>
 			{/* 
