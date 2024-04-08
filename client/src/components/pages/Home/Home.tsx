@@ -48,6 +48,7 @@ const Home = () => {
 			})
 	}, [])
 
+
 	return (
 		<>
 			<TopBar src='./logo.jpg' />
