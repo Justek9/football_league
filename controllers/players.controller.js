@@ -11,9 +11,9 @@ exports.getAll = async (req, res) => {
 
 exports.add = async (req, res) => {
 	try {
-		let { name, nickname, birthYear, city, active, imgSrc } = req.body
-		if (name && nickname && birthYear && city && active && imgSrc) {
-			const newPlayer = new Players({ name, nickname, birthYear, city, active, imgSrc })
+		let { name, nickname, birthYear, city, active, imgSrc, short, number, detailsImgSrc } = req.body
+		if (name && nickname && birthYear && city && active && imgSrc && short && number && detailsImgSrc) {
+			const newPlayer = new Players({  name, nickname, birthYear, city, active, imgSrc, short, number, detailsImgSrc })
 			await newPlayer.save()
 			res.json(newPlayer)
 		}
