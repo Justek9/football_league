@@ -56,7 +56,8 @@ const Game = ({ latestGame, games, showMore }: gameProps) => {
 				<span className={styles.teamColor}>zieloni </span>
 				{latestGame?.result} <span className={styles.teamColor}>czerwoni </span>
 			</h2>
-			<ActionsTable actions={latestGame?.actions} />
+			<ActionsTable latestGame={latestGame} />
+			{/* <ActionsTable actions={latestGame?.actions} /> */}
 			<div className={styles.teams}>
 				<p>Zieloni: </p>
 				<div className={styles.greenTeam}>

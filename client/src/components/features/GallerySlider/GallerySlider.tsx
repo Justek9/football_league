@@ -34,10 +34,7 @@ const GallerySlider = ({ slides }: GallerySliderProps) => {
 			<div className={`${styles.arrow}`} style={{ right: '32px' }} onClick={goToNext}>
 				<FontAwesomeIcon icon={faArrowRight} />
 			</div>
-			{/* 
-			<div className={styles.slideStyles} style={{ backgroundImage: `url(${slides[currentIndex]})` }}></div> */}
-
-			<img className={styles.slideStyles} src={slides[currentIndex]}></img>
+					<img className={styles.slideStyles} src={slides[currentIndex]}></img>
 			<div className={styles.dotsContainer}>
 				{slides.map((slide, index) => (
 					<div className={styles.dotStyle} key={index} onClick={() => goToSlide(index)}>

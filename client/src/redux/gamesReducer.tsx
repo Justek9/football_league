@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface SingleGame {
 	number: number
-	actions: string[]
+	actions: { player: string; assist: string; minute: string }[]
 	minutes: string
 	aditionalInfo: string
 	result: string

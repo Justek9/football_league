@@ -1,25 +1,25 @@
 import { STATES } from 'mongoose'
 import { useAppSelctor } from '../../../redux/store'
 import styles from './ActionsTable.module.scss'
+import { SingleGame } from '../../../redux/gamesReducer'
 
 type ActionsTableProps = {
-	actions: any[]
+	latestGame: SingleGame
 }
 
-const ActionsTable = ({ actions }: ActionsTableProps) => {
+const ActionsTable = ({ latestGame }: ActionsTableProps) => {
 	let scoreRed = 0
 	let scoreGreen = 0
-	const players= useAppSelctor(state=>state.players.players)
+	const players = useAppSelctor(state => state.players.players)
 
-	const getFullName = (short: string)=>{
+	const getFullName = (short: string) => {
 		let fullName
 
-		players.find(player=>{
-			if(player.short === short) fullName = player.name
+		players.find(player => {
+			if (player.short === short) fullName = player.name
 		})
 
 		return fullName
-
 	}
 
 	return (
@@ -35,9 +35,10 @@ const ActionsTable = ({ actions }: ActionsTableProps) => {
 				</tr>
 			</thead>
 			<tbody>
-				{actions?.map((action, i) => {
-					if (action.score === 'red') scoreRed++
-					if (action.score === 'green') scoreGreen++
+				{latestGame?.actions?.map((action, i) => {
+					if (latestGame.players[0].green.includes(action.player)) scoreGreen++
+					if (latestGame.players[0].red.includes(action.player)) scoreRed++
+				
 					return (
 						<tr key={i}>
 							<td>{scoreGreen}</td>
